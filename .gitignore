@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+!.env.example
+artifacts/
+test-results/
+*.log
+*.key
+*-keypair.json
+receipts-private/

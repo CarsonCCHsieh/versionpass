@@ -1,0 +1,22 @@
+{
+  "name": "versionpass",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first creative delivery and approval receipts on Solana devnet",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@solana/addresses": "8.6.0",
+    "@solana/instructions": "8.6.0",
+    "@solana/rpc": "8.6.0",
+    "@solana/signers": "8.6.0",
+    "@solana/transaction-messages": "8.6.0",
+    "@solana/transactions": "8.6.0"
+  },
+  "devDependencies": { "esbuild": "0.28.2" }
+}

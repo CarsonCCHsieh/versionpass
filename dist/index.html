@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Creative delivery, clear approval. Verify the exact file your client approved, with local file hashing and Solana devnet receipts.">
+  <meta name="color-scheme" content="light">
+  <title>VERSIONPASS — Make final mean final.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="VERSIONPASS home"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 1 17 10 26 7 21 15 27 21 17 20 14 28 11 20 1 21 7 14 2 7 11 10Z" fill="currentColor"/></svg><span>versionpass</span></a>
+      <div class="workspace"><span class="avatar">M</span><div><strong>MICRO USADA</strong><small data-i18n="workspace">Creative workspace</small></div><span class="tiny-arrow">⌄</span></div>
+      <div class="nav-section" data-i18n="workspaceLabel">WORKSPACE</div>
+      <button class="nav-item active" data-view="delivery"><span>▧</span><span data-i18n="deliveries">Deliveries</span><span class="nav-count" id="version-count">0</span></button>
+      <button class="nav-item" data-view="verify"><span>◈</span><span data-i18n="verifyTab">Verify a receipt</span></button>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span class="status-dot"></span><strong data-i18n="localFirst">Files stay with you.</strong><p data-i18n="privacy">Your original files never leave this browser.</p></div>
+        <a class="back-link" href="https://microusada.com" target="_blank" rel="noopener noreferrer">↗ <span data-i18n="allProjects">All MICRO USADA projects</span></a>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar"><div class="breadcrumbs"><span data-i18n="deliveries">Deliveries</span><span>/</span><strong id="project-title" data-i18n="projectTitle">Untitled delivery</strong></div><div class="topbar-tools"><span class="network-pill"><span class="status-dot"></span>Solana devnet</span><label class="sr-only" for="language">Language</label><select id="language"><option value="en">EN</option><option value="zh-TW">繁中</option><option value="ja">日本語</option></select></div></header>
+      <section id="delivery-view">
+        <div class="project-header"><div><div class="eyebrow" data-i18n="eyebrow">A GOOD HANDOFF IS A CLEAR ONE.</div><h1 data-i18n="headline">Make final<br><span>mean final.</span></h1><p class="intro" data-i18n="intro">One version. One clear approval. A receipt anyone can check.</p></div><div class="project-actions"><button class="button secondary" id="try-demo" data-i18n="tryDemo">Explore a sample ↗</button><button class="button dark" id="new-delivery" data-i18n="newDelivery">＋ New delivery</button><input id="delivery-file" type="file" hidden></div></div>
+        <div class="section-rule"><span><span class="little-star">✳</span> <span data-i18n="deliveryDesk">YOUR DELIVERY DESK</span></span><span id="mode-label" class="mode-label" data-i18n="localDraft">LOCAL DRAFT</span></div>
+        <div class="desk">
+          <section class="workbench">
+            <div class="file-heading"><div class="file-icon">↗</div><div><h2 id="file-name" data-i18n="noFile">Start with your final file</h2><span id="file-meta" data-i18n="noFileMeta">Add a file or explore the sample delivery.</span></div><span class="file-tag" id="file-tag">—</span></div>
+            <div class="preview" id="file-preview"><div class="preview-grid"></div><div class="document"><div class="doc-top"><span>V / P</span><span data-i18n="deliveryDocument">DELIVERY NOTES</span><span>001</span></div><div class="doc-symbol">↗</div><h3 data-i18n="documentTitle">Good work.<br>Clearly delivered.</h3><div class="doc-bottom"><span data-i18n="documentCaption">THE LAST MILE OF CREATIVE WORK.</span><span>VERSIONPASS</span></div></div><span class="preview-caption" data-i18n="previewCaption">Illustrative cover · original file stays local</span></div>
+            <div class="file-footer"><div><span class="tiny-label">SHA-256</span><code id="file-hash">—</code></div><span class="mini-pill" data-i18n="localOnly">LOCAL ONLY</span></div>
+            <div class="sample-actions" id="sample-actions" hidden><button class="button secondary" id="download-sample" type="button" disabled data-i18n="downloadSample">↓ Download this sample original</button></div>
+            <div class="version-heading"><h3 data-i18n="versionHistory">Version history</h3><span data-i18n="versionHint">Every revision has its own fingerprint.</span></div>
+            <div id="version-list" class="version-list"><div class="empty-list" data-i18n="noVersions">Your first delivery starts here.</div></div>
+          </section>
+          <aside class="receipt-panel">
+            <div class="receipt-title"><span data-i18n="receiptTitle">The handoff receipt</span><span>↗</span></div>
+            <h2 data-i18n="receiptHeadline">Less “which one?”<br>More “this one.”</h2>
+            <p class="receipt-intro" data-i18n="receiptIntro">Tie approval to the file itself, so the right version travels with the work.</p>
+            <ol class="steps"><li><span class="step-number">01</span><div><strong data-i18n="step1">Fingerprint the file</strong><small id="step1-state" data-i18n="step1Hint">Computed here. No upload.</small></div><span id="step1-icon">○</span></li><li><span class="step-number">02</span><div><strong data-i18n="step2">Record the delivery</strong><small id="step2-state" data-i18n="step2Hint">A public devnet receipt.</small></div><span id="step2-icon">○</span></li><li><span class="step-number">03</span><div><strong data-i18n="step3">Confirm this version</strong><small id="step3-state" data-i18n="step3Hint">Signed by the assigned reviewer.</small></div><span id="step3-icon">○</span></li></ol>
+            <div class="receipt-status" id="receipt-status"><span class="status-dot"></span><div><strong data-i18n="notRecorded">Not recorded on-chain</strong><small data-i18n="draftExplanation">A local draft is not a blockchain receipt.</small></div></div>
+            <button class="button dark wide" id="anchor-version" disabled data-i18n="recordDelivery">Record delivery ↗</button>
+            <button class="button secondary wide" id="approve-version" disabled data-i18n="approveVersion">Approve this exact version</button>
+            <button class="button secondary wide" id="recheck-delivery" hidden disabled data-i18n="recheckDelivery">Recheck existing transactions</button>
+            <div class="receipt-links"><button id="export-receipt" disabled data-i18n="exportReceipt">↓ Export receipt</button><a id="explorer-link" hidden target="_blank" rel="noopener noreferrer" data-i18n="viewExplorer">View on Solana ↗</a></div>
+            <details class="test-session"><summary data-i18n="testSession">Devnet test session</summary><p data-i18n="testExplanation">Create temporary creator and reviewer identities for this browser session. Free test tokens only; no real wallet. Refreshing discards the signing keys.</p><button id="prepare-session" class="button secondary wide" data-i18n="prepareSession">Create test identities</button><button id="request-credits" class="button secondary wide" disabled data-i18n="requestCredits">Request free test credits</button><div class="identity-addresses" id="identity-addresses"></div></details>
+          </aside>
+        </div>
+      </section>
+      <section id="verify-view" hidden><div class="verify-header"><div class="eyebrow" data-i18n="verifyEyebrow">TRUST THE FILE, NOT THE FILENAME.</div><h1 data-i18n="verifyHeadline">Is this<br><span>the one?</span></h1><p class="intro" data-i18n="verifyIntro">Bring a receipt and the original file. Check the fingerprint, reviewer, and live devnet record.</p></div><div class="verify-workbench"><div class="verify-card"><span class="step-number">01</span><h2 data-i18n="importReceipt">Import a receipt</h2><p data-i18n="importExplanation">Receipt imports are untrusted until checked. No keys or original files are included.</p><button class="button dark" id="import-receipt" data-i18n="chooseReceipt">Choose receipt JSON</button><input type="file" id="receipt-file" accept="application/json,.json" hidden><p id="import-state" class="form-state"></p></div><div class="verify-card"><span class="step-number">02</span><h2 data-i18n="compareFile">Compare the original</h2><p data-i18n="compareExplanation">Select the actual file to compare its SHA-256. A renamed or changed file cannot pass by its filename.</p><button class="button secondary" id="verify-file" disabled data-i18n="chooseFile">Choose original file</button><input type="file" id="verify-file-input" hidden><p id="verify-file-state" class="form-state"></p></div><div class="verify-card"><span class="step-number">03</span><h2 data-i18n="checkDevnet">Recheck devnet</h2><p data-i18n="devnetExplanation">Read the transaction again. Verify memo, signer and finalization. An unavailable receipt stays unverified.</p><button class="button secondary" id="recheck-record" disabled data-i18n="checkLive">Check live receipt ↗</button><p id="network-state" class="form-state"></p></div></div></section>
+      <footer class="footer"><span>VERSIONPASS <span class="footer-cross">×</span> MICRO USADA</span><span data-i18n="footerNote">An early devnet prototype. Public-key approval is not legal identity verification.</span><a href="./about.html" data-i18n="about">How it works ↗</a></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

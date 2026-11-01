@@ -1,0 +1,616 @@
+{
+  "schema": 1,
+  "generator": "scripts/build.mjs",
+  "complete": true,
+  "missingFullLicensePackages": [],
+  "licenseConflicts": [],
+  "dependencySelection": "All package inputs reachable in the esbuild browser graph, including any later removed by tree shaking.",
+  "licenseMaterial": "Full legal files copied verbatim from installed packages or the pinned official upstream sources recorded per file; no absolute local paths.",
+  "bundles": [
+    {
+      "path": "lib/solana-vendor.mjs",
+      "bytes": 81712,
+      "sha256": "7cf23d72c63a358f70c54f863bf03085914d19beaacf61f51a651bee5b237758"
+    }
+  ],
+  "packages": [
+    {
+      "name": "@solana/addresses",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/addresses",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/addresses/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 834,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/addresses/LICENSE",
+          "path": "solana--addresses@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/assertions",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/assertions",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/assertions/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 673,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/assertions/LICENSE",
+          "path": "solana--assertions@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/codecs-core",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/codecs-core",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/codecs-core/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1819,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/codecs-core/LICENSE",
+          "path": "solana--codecs-core@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/codecs-data-structures",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/codecs-data-structures",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/codecs-data-structures/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 3031,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/codecs-data-structures/LICENSE",
+          "path": "solana--codecs-data-structures@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/codecs-numbers",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/codecs-numbers",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/codecs-numbers/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1016,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/codecs-numbers/LICENSE",
+          "path": "solana--codecs-numbers@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/codecs-strings",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/codecs-strings",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/codecs-strings/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1420,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/codecs-strings/LICENSE",
+          "path": "solana--codecs-strings@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/errors",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/errors",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/errors/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 39143,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/errors/LICENSE",
+          "path": "solana--errors@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/fast-stable-stringify",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/fast-stable-stringify",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/fast-stable-stringify/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 849,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/fast-stable-stringify/LICENSE",
+          "path": "solana--fast-stable-stringify@8.6.0/LICENSE",
+          "bytes": 1101,
+          "sha256": "99209ce2d46c6f9d3493bee0388a6c54f6c0c2c610bdbc99074f4575001b75f6",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/fixed-points",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/fixed-points",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/fixed-points/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 0,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/fixed-points/LICENSE",
+          "path": "solana--fixed-points@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/functional",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/functional",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/functional/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 50,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/functional/LICENSE",
+          "path": "solana--functional@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/instruction-plans",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/instruction-plans",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/instruction-plans/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 0,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/instruction-plans/LICENSE",
+          "path": "solana--instruction-plans@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/instructions",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/instructions",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/instructions/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 252,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/instructions/LICENSE",
+          "path": "solana--instructions@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/keys",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/keys",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/keys/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 436,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/keys/LICENSE",
+          "path": "solana--keys@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/offchain-messages",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/offchain-messages",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/offchain-messages/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 0,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/offchain-messages/LICENSE",
+          "path": "solana--offchain-messages@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/promises",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/promises",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/promises/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 774,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/promises/LICENSE",
+          "path": "solana--promises@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1638,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc/LICENSE",
+          "path": "solana--rpc@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-api",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-api",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-api/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 2478,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-api/LICENSE",
+          "path": "solana--rpc-api@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-spec",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-spec",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-spec/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1066,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-spec/LICENSE",
+          "path": "solana--rpc-spec@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-spec-types",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-spec-types",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-spec-types/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1686,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-spec-types/LICENSE",
+          "path": "solana--rpc-spec-types@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-transformers",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-transformers",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-transformers/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 5287,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-transformers/LICENSE",
+          "path": "solana--rpc-transformers@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-transport-http",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-transport-http",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-transport-http/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1771,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-transport-http/LICENSE",
+          "path": "solana--rpc-transport-http@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/rpc-types",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/rpc-types",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/rpc-types/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 28,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/rpc-types/LICENSE",
+          "path": "solana--rpc-types@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/signers",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/signers",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/signers/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 2558,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/signers/LICENSE",
+          "path": "solana--signers@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "4594508394d00a9cc33585daee5637fb32d2baea5ebb22e3923a1a000898115a",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/subscribable",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/subscribable",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/subscribable/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 1022,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/subscribable/LICENSE",
+          "path": "solana--subscribable@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/transaction-messages",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/transaction-messages",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/transaction-messages/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 11506,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/transaction-messages/LICENSE",
+          "path": "solana--transaction-messages@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    },
+    {
+      "name": "@solana/transactions",
+      "version": "8.6.0",
+      "declaredLicense": "MIT",
+      "sourcePackage": "node_modules/@solana/transactions",
+      "repository": "https://github.com/anza-xyz/kit",
+      "npm": "https://www.npmjs.com/package/@solana/transactions/v/8.6.0",
+      "hasFullLicenseFile": true,
+      "bundledBytes": 2008,
+      "materialLicense": "MIT",
+      "inputFiles": [
+        "dist/index.browser.mjs"
+      ],
+      "files": [
+        {
+          "source": "node_modules/@solana/transactions/LICENSE",
+          "path": "solana--transactions@8.6.0/LICENSE",
+          "bytes": 1060,
+          "sha256": "c181f3e6911f515d2b5d18513f8e24fba252c36856978fa80b01249fa813453f",
+          "provenance": "installed-package"
+        }
+      ]
+    }
+  ]
+}
