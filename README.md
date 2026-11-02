@@ -11,7 +11,8 @@ passed on 2 November 2026, including receipt export and independent reimport.
 The narrated [2:55 devnet demo](https://www.youtube.com/watch?v=6p95Yg-QWiI)
 is available with English captions. It uses actual application screenshots,
 synthetic test content and temporary identities, with an edited-screenshot
-disclosure. Public application deployment and formal final submission remain pending.
+disclosure. The [public application](https://microusada.com/versionpass/) is
+deployed. Formal final submission remains pending.
 
 ## Run locally
 
@@ -107,8 +108,8 @@ This was synthetic test content and two temporary keypairs in one browser, not
 two independently verified people. It does not establish production readiness,
 faucet automation or an exact token-funding amount. The built-in **Explore a
 sample** walkthrough remains off-chain and unverified. The linked demo video
-documents this completed run. Public deployment and formal final submission
-are still pending.
+documents this completed run. The public application is available at
+<https://microusada.com/versionpass/>; formal final submission is still pending.
 
 ## What the prototype checks
 
@@ -138,8 +139,11 @@ rate-limited or reset; availability is not guaranteed.
 Use synthetic files for demonstrations. Public commitments and addresses can
 still be linkable. Receipt exports intentionally contain public records rather
 than original files, local labels, notes or secrets. Google Fonts makes ordinary
-font requests; the app contains no analytics integration. Local development
-artifacts, credentials and private receipts must stay out of any published repo.
+font requests. The app itself includes no analytics or advertising code. The
+public site is served through Cloudflare, which receives ordinary request
+metadata and may add a site analytics script. The app does not send selected
+file bytes or signing keys to that service. Local development artifacts,
+credentials and private receipts must stay out of any published repo.
 
 ## Layout
 
