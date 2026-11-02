@@ -8,8 +8,10 @@ This is an early prototype for the Encode Solana Hackathon. The mid-submission
 checkpoint was successfully saved on 2 November 2026 (Asia/Taipei). That checkpoint
 is not the final submission. A live devnet delivery-and-approval demonstration
 passed on 2 November 2026, including receipt export and independent reimport.
-A public deployment, final demo video publication and formal final submission
-remain pending.
+The narrated [2:55 devnet demo](https://www.youtube.com/watch?v=6p95Yg-QWiI)
+is available with English captions. It uses actual application screenshots,
+synthetic test content and temporary identities, with an edited-screenshot
+disclosure. Public application deployment and formal final submission remain pending.
 
 ## Run locally
 
