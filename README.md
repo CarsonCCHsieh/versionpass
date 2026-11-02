@@ -12,7 +12,10 @@ The narrated [2:55 devnet demo](https://www.youtube.com/watch?v=6p95Yg-QWiI)
 is available with English captions. It uses actual application screenshots,
 synthetic test content and temporary identities, with an edited-screenshot
 disclosure. The [public application](https://microusada.com/versionpass/) is
-deployed. Formal final submission remains pending.
+deployed. The official Final checkpoint was submitted and saved on 2 November
+2026 (Asia/Taipei); its details and all five required fields were confirmed after
+reloading. The [seven-slide presentation](https://microusada.com/versionpass/presentation/)
+is publicly available.
 
 ## Run locally
 
@@ -109,7 +112,10 @@ two independently verified people. It does not establish production readiness,
 faucet automation or an exact token-funding amount. The built-in **Explore a
 sample** walkthrough remains off-chain and unverified. The linked demo video
 documents this completed run. The public application is available at
-<https://microusada.com/versionpass/>; formal final submission is still pending.
+<https://microusada.com/versionpass/>. The official Final checkpoint was submitted
+and saved on 2 November 2026 (Asia/Taipei), with saved values confirmed after
+reloading. The [presentation](https://microusada.com/versionpass/presentation/)
+is public.
 
 ## What the prototype checks
 
