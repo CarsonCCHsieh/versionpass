@@ -6,8 +6,10 @@ Solana devnet. Original files stay in the browser.
 
 This is an early prototype for the Encode Solana Hackathon. The mid-submission
 checkpoint was successfully saved on 2 November 2026 (Asia/Taipei). That checkpoint
-is not the final submission. A public deployment, demo video and verified live
-devnet delivery-and-approval demonstration are not yet complete.
+is not the final submission. A live devnet delivery-and-approval demonstration
+passed on 2 November 2026, including receipt export and independent reimport.
+A public deployment, final demo video publication and formal final submission
+remain pending.
 
 ## Run locally
 
@@ -56,7 +58,7 @@ memory. It does not upload a chosen file or create a transaction. The download
 control is available only in sample mode; adding a local delivery leaves that
 mode. English, Traditional Chinese and Japanese controls support this walkthrough.
 
-For a future live demonstration, use **Devnet test session** to create temporary
+For a new live demonstration, use **Devnet test session** to create temporary
 test identities. **Copy creator address** copies only its public address. If you
 choose to obtain free devnet SOL, open the linked [official faucet](https://faucet.solana.com/)
 yourself and use that address; the application does not open it automatically or
@@ -68,17 +70,42 @@ not a confirmed zero balance. A sufficient balance does not verify any delivery.
 Only after funding is confirmed, add a synthetic file as a new delivery, record it,
 wait for successful finalization, and approve that exact version. Export its
 receipt and recheck it separately. Unavailable funding, a pending transaction or
-a failed check must remain unverified. This live path has not yet been completed;
-the local walkthrough and deterministic checks do not substitute for it.
+a failed check must remain unverified. The completed run below is separate from
+the built-in off-chain sample and the deterministic test suite.
 
 CLI/RPC airdrops were discontinued; the app no longer calls `requestAirdrop`.
 See the [official October 2026 changelog](https://solana.com/news/solana-changelog-october-1-2026).
-The official faucet instructs AI agents not to automate its website. Manual
-funding, a read-only balance check, and signed delivery transactions are separate
-steps. A local-only integration probe, excluded from this reviewed source export,
+The official faucet displays guidance for AI agents; this demonstration does not
+establish repeatable automated funding. Obtaining test tokens, a read-only balance
+check, and signed delivery transactions are separate steps. A local-only
+integration probe, excluded from this reviewed source export,
 never requests tokens. Its fresh memory-only identities normally remain unfunded,
 so it explicitly stops. It is not part of `npm test` and must not be mistaken for
 verified live evidence.
+
+## Completed live devnet demonstration
+
+On 2 November 2026, a synthetic 60-byte original was recorded and approved on
+devnet using the application's temporary test identities. The delivery finalized
+at slot **517729534** ([delivery transaction](https://explorer.solana.com/tx/2mFuZZiKD5VxRKZTnPwui7kQ8FRuQLkyfGU3Fv7DBuSBwiYmprzoTSaZ8fV1iRar1Wjc1gRgUdkvKVxBrzw5Dwyf?cluster=devnet));
+the assigned reviewer's approval finalized at slot **517729891**
+([approval transaction](https://explorer.solana.com/tx/34BQKRy9dQYSkrzCAiuTiB68HxG3L2Nb7B5Hh285iVZmDD48sDHKx5RMpAbW9AAKC2Agj7qC5c8KXcz9vX4B7ovY?cluster=devnet)).
+Independent read-only RPC checks pinned the devnet genesis hash and verified both
+successful finalized transactions, their signatures, slots, exact Memo contents
+and required signers, including the approval's assigned-reviewer binding.
+
+The exported receipt was 1,709 bytes, with SHA-256
+`25a3a2ee8d5d9750107782fff942af6f7b684bdae8b205fd6fde7f5a3f1eeea5`.
+A fresh browser tab with no signing identities imported that receipt and checked
+both transactions again. The original file matched; different bytes renamed to
+the same filename were rejected as a content mismatch. This checks file content
+rather than trusting a filename or an imported verification claim.
+
+This was synthetic test content and two temporary keypairs in one browser, not
+two independently verified people. It does not establish production readiness,
+faucet automation or an exact token-funding amount. The built-in **Explore a
+sample** walkthrough remains off-chain and unverified. Final video publication,
+public deployment and formal final submission are still pending.
 
 ## What the prototype checks
 
