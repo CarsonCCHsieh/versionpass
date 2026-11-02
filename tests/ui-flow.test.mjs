@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { createDemoWorkspace, createApproval } from '../dist/lib/core.mjs';
 import {
   MAX_RECEIPT_BYTES, validateReceiptBundle, parseReceiptFile, serializeReceiptBundle,
-  upsertObservation, verificationPlan, liveSummary, creditStatusKey
+  upsertObservation, verificationPlan, liveSummary, balanceStatusKey
 } from '../dist/lib/receipt-ui.mjs';
 
 // Deliberately synthetic format fixtures, never real transactions or chain proof.
@@ -113,10 +113,11 @@ test('exports round-trip only canonical public records and signatures, never lab
   for (const word of ['filename', 'privateKey', 'secretKey', 'labels', 'rpc-verified', 'explorer']) assert.equal(serialized.includes(word), false);
 });
 
-test('HTTP 410 faucet unavailability is not a pending transfer or a rate-limit claim', () => {
-  assert.equal(creditStatusKey({ funded: false, requested: true, signature: null, reason: 'faucet-unavailable', httpStatus: 410 }), 'creditsUnavailable');
-  assert.equal(creditStatusKey({ funded: false, signature, reason: 'transaction-failed' }), 'creditsFailed');
-  assert.equal(creditStatusKey({ funded: false, signature, reason: 'awaiting-finality' }), 'creditsPending');
-  assert.equal(creditStatusKey({ funded: false, signature, reason: 'faucet-already-attempted' }), 'creditsUnknown');
-  assert.equal(creditStatusKey({ funded: true, requested: false }), 'creditsReady');
+test('balance UI distinguishes sufficient, insufficient and unknown reads without claiming a transaction', () => {
+  assert.equal(balanceStatusKey({ state: 'funded', funded: true }), 'creditsReady');
+  assert.equal(balanceStatusKey({ state: 'unfunded', funded: false }), 'creditsNeeded');
+  for (const result of [undefined, { state: 'unavailable', funded: null },
+    { funded: true }, { state: 'unfunded', funded: true }, { state: 'funded', funded: false }]) {
+    assert.equal(balanceStatusKey(result), 'creditsUnknown');
+  }
 });

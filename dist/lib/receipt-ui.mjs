@@ -77,10 +77,8 @@ export function liveSummary(plan, observations) {
   return plan.approval.decision === 'approved' ? 'approved' : 'changes-requested';
 }
 
-export function creditStatusKey(result) {
-  if (result?.funded === true) return 'creditsReady';
-  if (result?.reason === 'faucet-unavailable') return 'creditsUnavailable';
-  if (result?.reason === 'transaction-failed') return 'creditsFailed';
-  if (result?.reason === 'awaiting-finality' && typeof result.signature === 'string' && result.signature) return 'creditsPending';
+export function balanceStatusKey(result) {
+  if (result?.state === 'funded' && result.funded === true) return 'creditsReady';
+  if (result?.state === 'unfunded' && result.funded === false) return 'creditsNeeded';
   return 'creditsUnknown';
 }

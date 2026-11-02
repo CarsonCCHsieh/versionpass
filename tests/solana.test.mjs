@@ -78,16 +78,14 @@ async function fixture(options = {}) {
       assert.equal(typeof account, 'string');
       assert.equal(account, state.ids.creator);
       assert.deepEqual(config, { commitment: 'finalized' });
-    }, () => ({ context: { slot: 78n }, value: state.unfunded ? 0n : 50000000n })),
-    requestAirdrop: method('requestAirdrop', (account, lamports, config) => {
-      assert.equal(account, state.ids.creator);
-      assert.equal(lamports, 50000000n);
-      assert.deepEqual(config, { commitment: 'finalized' });
     }, () => {
-      state.airDrops++;
-      if (state.faucetError) throw state.faucetError;
-      return '1'.repeat(64);
+      if (state.balanceError) throw state.balanceError;
+      return { context: { slot: 78n }, value: state.balance ?? (state.unfunded ? 0n : 50000000n) };
     }),
+    requestAirdrop: () => {
+      state.airDrops++;
+      throw new Error('Automatic faucet requests must never be called.');
+    },
     getLatestBlockhash: method('getLatestBlockhash', config => {
       assert.deepEqual(config, { commitment: 'finalized' });
     }, () => ({ context: { slot: 78n }, value: {
@@ -257,16 +255,57 @@ test('designated reviewer approval has two verified wire signatures and creator 
   assert.equal(fx.state.wireMessage.staticAccounts[0], ids.creator);
 });
 
-test('429 faucet is attempted once with bigint devnet credits and is never retried', async () => {
-  const error = new Error('Synthetic rate limit'); error.context = { statusCode: 429 };
-  const fx = await fixture({ unfunded: true, faucetError: error }); const { record } = await prepare(fx);
-  const first = await fx.adapter.requestTestCredits();
-  assert.equal(first.funded, false); assert.equal(first.httpStatus, 429);
-  assert.equal(first.reason, 'faucet-unavailable');
-  const second = await fx.adapter.requestTestCredits();
-  assert.equal(second.reason, 'faucet-already-attempted'); assert.equal(second.requested, false);
+test('balance checks need an existing identity and never create one implicitly', async () => {
+  const fx = await fixture();
+  await assert.rejects(fx.adapter.checkTestBalance(), /Create the temporary test identities first/);
+  assert.deepEqual(fx.state.calls, []);
+  assert.equal(fx.state.airDrops, 0); assert.equal(fx.state.sends, 0);
+  assert.equal('requestTestCredits' in fx.adapter, false);
+});
+
+test('balance checks only read finalized devnet balance, including after manual funding', async () => {
+  const fx = await fixture({ balance: 0n }); const { ids, record } = await prepare(fx);
+  const results = await Promise.all([fx.adapter.checkTestBalance(), fx.adapter.checkTestBalance()]);
+  assert.deepEqual(results[0], { state: 'unfunded', funded: false, balanceLamports: '0', minimumLamports: '100000' });
+  assert.strictEqual(results[0], results[1]);
+  assert.equal(fx.state.calls.filter(call => call.name === 'getBalance').length, 1);
+  fx.state.balance = 99999n;
+  assert.equal((await fx.adapter.checkTestBalance()).state, 'unfunded');
   await assert.rejects(fx.adapter.anchorRecord(record, 'version'), /Free test credits/);
-  assert.equal(fx.state.airDrops, 1); assert.equal(fx.state.sends, 0);
+  fx.state.balance = 100000n;
+  assert.deepEqual(await fx.adapter.checkTestBalance(), {
+    state: 'funded', funded: true, balanceLamports: '100000', minimumLamports: '100000'
+  });
+  assert.strictEqual(await fx.adapter.createTestIdentities(), ids, 'balance checks must retain the same memory-only identities');
+  assert.notEqual(ids.creator, ids.reviewer);
+  assert.deepEqual(Object.keys(ids).sort(), ['creator', 'reviewer']);
+  assert.ok(Object.values(ids).every(value => typeof value === 'string'), 'identity results expose public addresses only');
+  const fresh = await fixture();
+  const freshIds = await fresh.adapter.createTestIdentities();
+  assert.notEqual(freshIds.creator, ids.creator, 'a fresh adapter does not recover the discarded session identity');
+  assert.notEqual(freshIds.reviewer, ids.reviewer);
+  assert.ok(fx.state.calls.every(call => ['getGenesisHash', 'getBalance'].includes(call.name)));
+  assert.equal(fx.state.airDrops, 0); assert.equal(fx.state.sends, 0);
+});
+
+test('balance RPC errors and a changed genesis remain unknown, never funded or confirmed zero', async () => {
+  const fx = await fixture({ balanceError: new Error('Synthetic read outage') }); await prepare(fx);
+  const unavailable = { state: 'unavailable', funded: null, balanceLamports: null, minimumLamports: '100000' };
+  assert.deepEqual(await fx.adapter.checkTestBalance(), unavailable);
+  fx.state.balanceError = null;
+  fx.state.genesis = 'wrong-network';
+  assert.deepEqual(await fx.adapter.checkTestBalance(), unavailable);
+  assert.equal(fx.state.calls.filter(call => call.name === 'getBalance').length, 1, 'wrong genesis blocks the balance read');
+  assert.equal(fx.state.airDrops, 0); assert.equal(fx.state.sends, 0);
+  assert.ok(fx.state.calls.every(call => ['getGenesisHash', 'getBalance'].includes(call.name)));
+});
+
+test('invalid balance values stay unavailable without requesting tokens or sending transactions', async () => {
+  const fx = await fixture({ balance: -1n }); await prepare(fx);
+  assert.equal((await fx.adapter.checkTestBalance()).state, 'unavailable');
+  fx.state.balance = 100000;
+  assert.equal((await fx.adapter.checkTestBalance()).state, 'unavailable');
+  assert.equal(fx.state.airDrops, 0); assert.equal(fx.state.sends, 0);
 });
 
 test('failed chain transaction stays failed and unsafe bigint cannot become verified', async () => {
@@ -278,7 +317,7 @@ test('failed chain transaction stays failed and unsafe bigint cannot become veri
   assert.equal(fx.state.sends, 1);
 });
 
-test('wrong genesis blocks temporary identities and all faucet/anchor activity', async () => {
+test('wrong genesis blocks temporary identities and all funding/anchor activity', async () => {
   const fx = await fixture({ genesis: 'wrong-network' });
   await assert.rejects(fx.adapter.createTestIdentities(), /not Solana devnet/);
   assert.equal(fx.state.airDrops, 0); assert.equal(fx.state.sends, 0);

@@ -28,14 +28,6 @@ function rpcJson(value) {
   return value;
 }
 
-function httpStatus(error) {
-  for (let level = 0, item = error; item && level < 5; level++, item = item.cause) {
-    const status = item.context?.statusCode ?? item.status;
-    if (Number.isInteger(status) && status >= 100 && status <= 599) return status;
-  }
-  return null;
-}
-
 export function explorerUrl(signature) {
   return 'https://explorer.solana.com/tx/' + encodeURIComponent(signature) + '?cluster=devnet';
 }
@@ -52,12 +44,12 @@ export function createDevnetAdapter({
   createIdentity = () => generateKeyPairSigner(false), wait = delay, statusAttempts = 16
 } = {}) {
   if (!Number.isInteger(statusAttempts) || statusAttempts < 1 || statusAttempts > 16) throw new Error('Invalid finality polling bound.');
-  let connection, identities, identityWork, faucetWork, faucetAttempted = false, faucetSignature;
+  let connection, identities, identityWork, balanceWork;
   const pending = new Map();
   const inFlight = new Map();
 
   // Kit's ordinary HTTP transport does not automatically retry. Each explicit
-  // request gets its own bounded lifetime; no send-and-confirm/airdrop factory
+  // request gets its own bounded lifetime; no send-and-confirm factory
   // may introduce an implicit resend or subscription behind this boundary.
   const send = request => request.send({ abortSignal: AbortSignal.timeout(20000) });
 
@@ -87,27 +79,24 @@ export function createDevnetAdapter({
     return null;
   }
 
-  async function requestTestCredits() {
+  async function checkTestBalance() {
     if (!identities) throw new Error('Create the temporary test identities first.');
-    if (faucetWork) return faucetWork;
-    faucetWork = (async () => {
-      const rpc = await getDevnet();
-      if ((await send(rpc.getBalance(identities.creator.address, { commitment: 'finalized' }))).value >= 100000n) return { funded: true, requested: false };
-      if (faucetAttempted) return { funded: false, requested: false, signature: faucetSignature ?? null, reason: 'faucet-already-attempted' };
-      // Consume the attempt before awaiting: a lost response cannot cause a
-      // duplicate faucet request. No paid fallback or retry on a 429 response.
-      faucetAttempted = true;
+    if (balanceWork) return balanceWork;
+    // Funding is a separate, manual action. This function only reads the
+    // creator's finalized balance; it never requests tokens or signs anything.
+    balanceWork = (async () => {
       try {
-        faucetSignature = await send(rpc.requestAirdrop(identities.creator.address, 50000000n, { commitment: 'finalized' }));
-        const status = await finalizedStatus(faucetSignature);
-        return { funded: !!status && status.err === null, requested: true, signature: faucetSignature,
-          reason: !status ? 'awaiting-finality' : status.err === null ? null : 'transaction-failed' };
-      } catch (error) {
-        return { funded: false, requested: true, signature: faucetSignature ?? null,
-          reason: 'faucet-unavailable', httpStatus: httpStatus(error) };
+        const rpc = await getDevnet();
+        const balance = (await send(rpc.getBalance(identities.creator.address, { commitment: 'finalized' }))).value;
+        if (typeof balance !== 'bigint' || balance < 0n) throw new Error('Invalid balance response.');
+        return Object.freeze({ state: balance >= 100000n ? 'funded' : 'unfunded',
+          funded: balance >= 100000n, balanceLamports: balance.toString(), minimumLamports: '100000' });
+      } catch {
+        // An outage or wrong genesis must not become a confirmed zero balance.
+        return Object.freeze({ state: 'unavailable', funded: null, balanceLamports: null, minimumLamports: '100000' });
       }
     })();
-    try { return await faucetWork; } finally { faucetWork = undefined; }
+    try { return await balanceWork; } finally { balanceWork = undefined; }
   }
 
   function receipt(record, signature, state = 'pending', reason = 'awaiting-finality') {
@@ -180,8 +169,8 @@ export function createDevnetAdapter({
     try { return await work; } finally { inFlight.delete(id); }
   }
 
-  return Object.freeze({ getDevnet, createTestIdentities, requestTestCredits, anchorRecord, checkRecord });
+  return Object.freeze({ getDevnet, createTestIdentities, checkTestBalance, anchorRecord, checkRecord });
 }
 
 const session = createDevnetAdapter();
-export const { getDevnet, createTestIdentities, requestTestCredits, anchorRecord, checkRecord } = session;
+export const { getDevnet, createTestIdentities, checkTestBalance, anchorRecord, checkRecord } = session;

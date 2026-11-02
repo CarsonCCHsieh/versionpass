@@ -57,12 +57,27 @@ control is available only in sample mode; adding a local delivery leaves that
 mode. English, Traditional Chinese and Japanese controls support this walkthrough.
 
 For a future live demonstration, use **Devnet test session** to create temporary
-test identities, then obtain free test credits through a supported route. Only
-after funding is confirmed, add a synthetic file as a new delivery, record it,
+test identities. **Copy creator address** copies only its public address. If you
+choose to obtain free devnet SOL, open the linked [official faucet](https://faucet.solana.com/)
+yourself and use that address; the application does not open it automatically or
+request tokens. Never connect a real wallet or send real funds. Keep the browser
+page open: refreshing loses its signing keys. **Check test balance** only queries
+the current creator's finalized devnet balance. A balance below 100,000 lamports
+(0.0001 devnet SOL) remains insufficient; an RPC or network mismatch is unknown,
+not a confirmed zero balance. A sufficient balance does not verify any delivery.
+Only after funding is confirmed, add a synthetic file as a new delivery, record it,
 wait for successful finalization, and approve that exact version. Export its
 receipt and recheck it separately. Unavailable funding, a pending transaction or
 a failed check must remain unverified. This live path has not yet been completed;
 the local walkthrough and deterministic checks do not substitute for it.
+
+CLI/RPC airdrops were discontinued; the app no longer calls `requestAirdrop`.
+See the [official October 2026 changelog](https://solana.com/news/solana-changelog-october-1-2026).
+The official faucet instructs AI agents not to automate its website. Manual
+funding, a read-only balance check, and signed delivery transactions are separate
+steps. The optional `tests/devnet-integration.mjs` probe never requests tokens;
+its fresh memory-only identities normally remain unfunded, so it explicitly stops.
+It is excluded from `npm test` and must not be mistaken for verified live evidence.
 
 ## What the prototype checks
 
