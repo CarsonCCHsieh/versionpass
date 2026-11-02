@@ -75,9 +75,10 @@ CLI/RPC airdrops were discontinued; the app no longer calls `requestAirdrop`.
 See the [official October 2026 changelog](https://solana.com/news/solana-changelog-october-1-2026).
 The official faucet instructs AI agents not to automate its website. Manual
 funding, a read-only balance check, and signed delivery transactions are separate
-steps. The optional `tests/devnet-integration.mjs` probe never requests tokens;
-its fresh memory-only identities normally remain unfunded, so it explicitly stops.
-It is excluded from `npm test` and must not be mistaken for verified live evidence.
+steps. A local-only integration probe, excluded from this reviewed source export,
+never requests tokens. Its fresh memory-only identities normally remain unfunded,
+so it explicitly stops. It is not part of `npm test` and must not be mistaken for
+verified live evidence.
 
 ## What the prototype checks
 
