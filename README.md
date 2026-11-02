@@ -106,8 +106,9 @@ rather than trusting a filename or an imported verification claim.
 This was synthetic test content and two temporary keypairs in one browser, not
 two independently verified people. It does not establish production readiness,
 faucet automation or an exact token-funding amount. The built-in **Explore a
-sample** walkthrough remains off-chain and unverified. Final video publication,
-public deployment and formal final submission are still pending.
+sample** walkthrough remains off-chain and unverified. The linked demo video
+documents this completed run. Public deployment and formal final submission
+are still pending.
 
 ## What the prototype checks
 
